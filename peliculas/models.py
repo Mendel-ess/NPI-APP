@@ -25,3 +25,6 @@ class Pelicula(models.Model):
     estado = models.CharField(choices=ESTADO, max_length=2)
     año_salida = models.DateField()
     vistas = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.titulo
