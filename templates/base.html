@@ -18,15 +18,16 @@
 
         <div>
             {% if request.user.is_authenticated %}
-            <a href="{% url 'account/logout %}" class='bg-primary_purple py-1 px-3 text-white md:text-lg rounded-md'>
+            <a href="#" class='bg-primary_purple py-1 px-3 text-white md:text-lg rounded-md'>
                 Cerrar sesion
             </a>
             {% else %}
-            <a href="{% url 'account_login %}" class='bg-primary_purple py-1 px-3 text-white md:text-lg rounded-md'>
+            <a href="#" class='bg-primary_purple py-1 px-3 text-white md:text-lg rounded-md'>
                 Iniciar Sesion
             </a>
             {% endif %}
         </div>
+    </nav>x
         {% block content %}
         
         {% endblock content %}
