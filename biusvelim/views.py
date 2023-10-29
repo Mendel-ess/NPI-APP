@@ -1,10 +1,13 @@
 import imp
 from django.shortcuts import redirect, render
 from django.views import View
+from django.conf import settings
+from django.http import FileResponse, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .forms import ProfileForm
 from .models import Perfil, Pelicula
+import os
 
 class Home(View):
     def get(self, request, *args, **kwargs):
@@ -89,3 +92,14 @@ class RepoPeli(View):
             return render(request, 'repeli.html', context)
         except Pelicula.DoesNotExist:
             return redirect('biusvelim:perfil_list')
+        
+class DescargarDocumentacion(View):
+    def get(self, request, file_name):
+        file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as file:
+                response = FileResponse(file)
+                response['Content-Disposition'] = f'attachment; filename="{file_name}"'
+                return response
+        else:
+            return HttpResponse('El archivo no existe.', status=404)

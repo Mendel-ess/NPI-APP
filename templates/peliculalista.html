@@ -33,21 +33,16 @@
         <section class='bg-primary_black  min-h-screen flex justify-center py-10'>
             <div class="p-8 w-10/12 relative" >
                 <h2 class="text-gray-200 text-2xl font-medium">
-                    Popular on Netflix
+                    Peliculas en Biusvelim
                 </h2>
                 <div class="flex justify-center  items-center min-w-full  movie_lis">
-                    {% for movie in movies %}
-                    <a href="{% url 'netflixapp:movie-detail' movie_id=movie.uuid %}">
+                    {% for pelicula in peliculas %}
+                    <a href="{% url 'biusvelim:movie-detail' pelicula_id=pelicula.uuid %}">
                         <div class=" h-40 m-4  bg-blue-500 flex-shrink-0 rounded-md cursor-pointer w-40">
-                            <img src="{{movie.image.url}}" class="w-full h-full " alt="">
+                            <img src="{{pelicula.imagen.url}}" class="w-full h-full " alt="">
                         </div>
                     </a>
                     {% endfor %}
-                    
-
-                    
-
-                
                 </div>
             </div>
         </section>

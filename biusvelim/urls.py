@@ -1,5 +1,5 @@
 from django.urls import path 
-from .views import Home, PerfilList, CrearPerfil, PeliculaList, DetallePelicula, RepoPeli
+from .views import Home, PerfilList, CrearPerfil, PeliculaList, DetallePelicula, RepoPeli, DescargarDocumentacion
 app_name = 'biusvelim'
 
 urlpatterns = [
@@ -9,4 +9,5 @@ urlpatterns = [
     path('ver/<str:perfil_id>/', PeliculaList.as_view(), name="pelicula_list"),
     path('ver/detalle/<str:pelicula_id>/', DetallePelicula.as_view(), name="detalle_pelicula"),
     path('ver/play/<str:pelicula_id>/', RepoPeli.as_view(), name="rep_pelicula"),
+    #path('download/<str:file_name>/', DescargarDocumentacion.as_view(), name='descarga'),
 ]
