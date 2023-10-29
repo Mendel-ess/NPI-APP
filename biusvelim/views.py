@@ -19,10 +19,10 @@ method_decorator(login_required, name='dispatch')
 class PerfilList(View):
     def get(self, request, *args, **kwargs):
         
-        perfil = request.user.perfiles.all()
+        perfiles = request.user.perfiles.all()
 
         context = {
-            'perfil': perfil
+            'perfiles': perfiles
         }
         return render(request, 'PerfilLista.html', context)
 
@@ -52,12 +52,12 @@ class PeliculaList(View):
     def get(self, request, perfil_id, *args, **kwargs):
         try:
             perfil = Perfil.objects.get(uuid=perfil_id)
-            pelicula = Pelicula.objects.filter(edad_limite=perfil.edad_limite)
+            peliculas = Pelicula.objects.filter(edad_limite=perfil.edad_limite)
             if perfil not in request.user.perfiles.all():
                 return redirect('biusvelim:perfil_list')
 
             context = {
-            'pelicula':pelicula
+            'peliculas':peliculas
             }
 
             return render(request, 'peliculalista.html', context)
