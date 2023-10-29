@@ -12,19 +12,12 @@
         <h3 class="text-xl md:text-xl py-5">
             Disfruta de tus series y peliculas favoritas en nuestra aplicacion  
         </h3>
-        <h4 class="text-sm md:text-lg pb-3">
-            Ingresa tu e-mail para crear una cuenta en nuestra platoforma
-        </h4>
 
         <div class="w-full flex justify-center">
             <div class="flex justify-center items-center w-11/12 md:w-10/12">
-                <input type="email" name="" id="" placeholder="Email address" class="md:py-5 py-4 px-2 placeholder-gray-500 rounded-tl-sm rounded-bl-sm outline-none  text-gray-900 bg-gray-50 block w-8/12 md:w-3/4">
-                <button class="bg-primary_purple font-medium md:font-normal md:w-full flex justify-center items-center py-4 px-1 md:px-0 rounded-br-sm rounded-tr-sm md:text-2xl">
-                    <span>
-                        Registrarse
-                    </span>
-                    <ion-icon name="chevron-forward-outline" class="text-2xl"></ion-icon>
-                </button>
+                <a href="{% url 'account_signup' %}" class="bg-primary_purple font-medium md:font-normal md:w-full flex justify-center items-center py-4 px-1 md:px-0 rounded-br-sm rounded-tr-sm md:text-2xl block w-8/12 md:w-3/4">
+                    Registrarse
+                </a>
             </div>
         </div>
     </div>
