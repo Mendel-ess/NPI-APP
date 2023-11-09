@@ -945,6 +945,7 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
+  text-shadow: -20px -20px 0 #000, 20px -20px 0 #000, -20px 20px 0 #000, 20px 20px 0 #000;
 }
 
 .text-gray-100{

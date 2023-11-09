@@ -45,7 +45,12 @@ class Pelicula(models.Model):
     
 class Video(models.Model):
         titulo = models.CharField(max_length=1000)
-        archivo = models.FileField(upload_to='video')
+        archivo = models.FileField(upload_to='movies')
 
         def __str__(self):
-            return self.titulo
+            return self.titulo   
+
+
+
+
+

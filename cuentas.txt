@@ -1,0 +1,3 @@
+username=cristo
+email=cristo@gmail.com
+contraseña='1328kd'i00kdas{

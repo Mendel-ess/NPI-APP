@@ -37,10 +37,11 @@ class CrearPerfil(View):
 
     def post(self, request, *args, **kwargs):
         form = ProfileForm(request.POST or None)
+        print(form.is_valid)
         if form.is_valid():
             perfil = Perfil.objects.create(**form.cleaned_data)
             if perfil:
-                request.user.profiles.add(perfil)
+                request.user.perfiles.add(perfil)
                 return redirect('biusvelim:perfil_list')
         context = {
             'form':form
@@ -80,9 +81,9 @@ class DetallePelicula(View):
 
 method_decorator(login_required, name='dispatch')
 class RepoPeli(View):
-    def get(self, request, movie_id, *args, **kwargs):
+    def get(self, request, pelicula_id, *args, **kwargs):
         try:
-            pelicula = Pelicula.objects.get(uuid=movie_id)
+            pelicula = Pelicula.objects.get(uuid=pelicula_id)
             pelicula = pelicula.video.values()
             
             context = {
